@@ -214,6 +214,8 @@ input, select, textarea {
 
 	h3 {
 		font-size: 1.5rem;
+		line-height: .1;
+		margin-bottom: 1.3em;
 	}
 
 	h4 {
@@ -231,7 +233,7 @@ input, select, textarea {
 	sub {
 		font-size: 0.8rem;
 		position: relative;
-		top: 0.5rem;
+		top: 0.2rem;
 	}
 
 	sup {

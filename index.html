@@ -31,6 +31,21 @@
 						</div>
 					</section>
 
+					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+						<div class="content">
+							<h2><b>Abstract</b></h2>
+							<p>Traditional epidemiology techniques, most notably polygenic risk scoring, has been used by researchers and well-known 
+								companies, such as 23andMe, to calculate disease risk of patients and consumers. However, recent research has begun 
+								to uncover limitations in such techniques due to their inability to model highly dimensional data with complex 
+								interactions (Wai, 2019). As humans, millions of potentially disease-contributing genetic variants exist in our genome, 
+								so the inability to leverage such information limits the power of these techniques to accurately determine the disease 
+								risk of individuals. In this report, we explore the viability of machine learning in disease risk prediction. We will 
+								show how Support Vector Machines outperformed other popular machine learning algorithms, such as Logistic Regression, 
+								K Nearest Neighbors, Random Forest, and Naive Bayes. Such an algorithm helps correct the high dimensional data issues 
+								in traditional techniques and offers an alternate and possibly better method to predict disease risk in individuals.</p>
+						</div>
+					</section>
+
 				<!-- Two -->
 					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
 						<div class="content">
@@ -38,15 +53,37 @@
 							<p>Genetic studies have enabled researchers and medical practitioners to better understand the underlying relationships 
 								between genes and human traits. However, these traits extend to well beyond those that are not so easily seen or determined, 
 								such as disease. This relationship between genes and diseases has been investigated through Genome Wide Association Studies 
-								(GWAS), which analyze the entire human genome to find genetic variants associated with specific traits (“Genome-Wide Association 
-								Studies,” n.d.). Despite the power of these studies to analyze genetic variation, the complex nature of diseases, in addition to 
-								the environmental factors that contribute towards their development, makes it difficult to pinpoint the exact genes that lead to 
-								disease. Nonetheless, these studies have shown that the likelihood of a disease, given an individual’s set of genes, can be determined 
-								to a certain degree. Naturally, this leads to the question of how different diseases quantitatively compare in their predictability 
-								and how this can be applied to build a model that determines the likelihood of an individual to develop a particular disease. Therefore, 
-								in an effort to better understand the predictability of a disease, or a set of diseases, and how disease prediction compares across 
-								various diseases, this project will focus on building a model to address this idea using the most common form of genetic variation, 
-								Single Nucleotide Polymorphisms (SNPs), and compare the effectiveness of such a model across different diseases.</p>
+								(GWASs), which analyze the entire human genome to find genetic variants associated with specific traits and diseases 
+								(“Genome-Wide Association Studies,” n.d.). The genetic variants that are commonly investigated are Single Nucleotide 
+								Polymorphisms (SNPs), which are the most common form of genetic variation in the human genome. A SNP represents a single 
+								nucleotide difference in the genome. To clarify, the DNA is composed of four nucleotide bases: Thymine, Cytosine, Adenine, 
+								and Guanine. If more than 1% of the population does not have the same nucleotide at a specific position in the genome, this 
+								is then considered a SNP (“SNP,” n.d.). However, a particular SNP does not necessarily contribute towards the development 
+								of a particular disease. This is precisely the reason why GWASs are so powerful, they investigate and uncover the variants 
+								that contribute towards disease.</p>
+							<p>
+								
+								After compiling results from GWASs, researchers are able to estimate the potential risk an individual has in developing a 
+								particular disease. A common method of calculating such risk is through polygenic risk scoring, which weighs SNPs according 
+								to their importance in the development of a disease and sums each risk score together. However, recent work has uncovered 
+								shortcomings in such a method, in particular, its inability to model highly dimensional data (Wai, 2019). Given that the 
+								number of SNPs that contribute towards a disease can be in the thousands, this shortcoming becomes an issue. In an effort 
+								to circumvent such an issue, we plan to explore the viability of machine learning in disease risk prediction. Popular machine 
+								learning algorithms, such as Support Vector Machines, K Nearest Neighbors, Logistic Regression, Random Forest, and Naive Bayes 
+								will all be explored. Coronary Heart Disease will initially be explored and then expanded to include other diseases.
+							</p>
+							<p>
+								Through this project we hope to answer the following research questions:<br>
+								<b>1. How do machine learning techniques perform in predicting disease risk?<br>
+								2. How does this performance vary across different diseases? </b>
+							</p>
+							<p>
+								Recent research has uncovered promising results in using machine learning techniques for disease risk prediction. Currently, 
+								Support Vector Machines appear to be the most popular for its predictive power and ability to handle highly dimensional 
+								information (Uddin, 2019). We also anticipate that the eventual model will vary in performance for diseases of different 
+								complexities. In other words, diseases that have more SNPs contributing to it will be more difficult to model than those 
+								having less SNPs.
+							</p>
 						</div>
 					</section>
 
@@ -54,7 +91,151 @@
 					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 						<div class="content">
 							<h2><b>Methods</b></h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
+							<p> <h3><b>The Data</b></h3>
+								For the purposes of this project, data will be acquired from the GWAS Catalog (https://www.ebi.ac.uk/gwas/). The data will be 
+								ingested directly from the site’s public API. The GWAS Catalog is a publically available collection of Genome Wide Association 
+								Studies, created collaboratively between EMBL-EBI and NHGRI, which contains summary statistics for the most significant SNP-disease 
+								associations found in published GWASs. This resource was created primarily to solve the issue of the rapid increase in the number 
+								of published GWASs and a lack of existence of a catalog to store them. To ensure the accuracy and validity of the data, the data 
+								is carefully curated by experienced molecular biologists. In addition, given that each of the GWASs is conducted independently, 
+								the individuals involved in each of these studies come from a variety of different samples and populations. For coronary heart 
+								disease, for example, which was the first disease that was examined in this project, the data is based on individuals of European, 
+								Asian, African, Middle Eastern, Native American, and other Admixed ancestries who were analyzed through statistical meta analysis 
+								techniques. Not much further information for the sample in this GWAS is provided, and the information, including ancestry, sample size, 
+								analytical methods, and the disease being studied varies between studies. It should be noted that such information is typically 
+								hidden to ensure the privacy of the individuals in the study. For more information on the data being used, please visit 
+								https://www.ebi.ac.uk/gwas/docs/about. This data is relevant to the project at hand as knowing which SNPs are the strongest 
+								indicators for the development of specific diseases is of interest. For coronary heart disease, the GWAS Catalog provides summary 
+								statistics on the most relevant SNPs to the disease. From this, exactly which SNPs to look for in an individual’s variants to better 
+								predict whether that individual is at a higher risk of coronary heart disease is known. Similar summary statistics are provided 
+								for a wide variety of different diseases. 
+
+							</p>
+							<p> <h3><b>Data Cleaning</b></h3>
+								The acquired data did require some cleaning in order to properly prepare it for the desired outcomes. As previously mentioned, 
+								only the variant ID, beta value, and risk allele frequency columns are needed; this allows the other 35 columns to be discarded. 
+								Observations that contained missing values in these columns were subsequently dropped as the information is necessary. For example,
+								without beta values, the SNPs are no longer useful as we do not know their contribution to a disease. In the data set that will be 
+								used for model building, all SNPs were kept as their beta values are not of interest; the model should ultimately be learning them. 
+								Interestingly, duplication of SNP and beta values appeared in each data set and were subsequently removed. After all this is done, 
+								a data frame consisting of three columns with no missing values or duplicates is created and will be used for simulating. Also, a 
+								data frame consisting of a single SNP column is created and will be used for model building.
+
+							</p>
+							<p> <h3><b>Population Simulation</b></h3>
+								While gathering data, we were unable to acquire real SNP-level data. In other words, we were unable to gather SNP data of real people 
+								who have and do not have a particular disease. This data is critical for the project at hand as it is the foundation for training 
+								and validating the eventual model. Given that SNP-level data of individuals contains personally identifiable information (PII) and 
+								requesting access to this data requires someone with more scientific credentials than any of us to request access, we are currently 
+								unable to work with real SNP-level data. As a solution, we created a pipeline to simulate this data using the information provided 
+								by the GWAS Catalog.
+							</p>
+							<p>
+								The first step into simulating the data is identifying the relevant SNPs (variant ID) and their contribution to a particular disease 
+								(beta score). The next step is identifying the risk allele frequencies for the SNPs. This allows us to know the frequency of a SNP 
+								in the general population. Thankfully, this information is provided by the GWAS Catalog data as described above. Now that this 
+								information is collected, the simulation process is ready to begin.
+							</p>
+							<p>
+								A total of 10,000 individuals were simulated for the final data set. Each individual was assigned a SNP according to that SNP’s risk 
+								allele frequency. For example, if the risk allele frequency of a SNP is 10%, every individual would have a 10% chance of having the 
+								SNP assigned to them. This is done for every SNP in the data set and repeated for all 10,000 individuals. In the end, the frequency 
+								of the SNPs in the data set closely reflect that of the initial risk allele frequencies. From there, a polygenic risk score was 
+								assigned to each individual by taking the dot product of the beta scores and the binary SNP values. This can be described by the 
+								following formula:<br>
+								<center><img src="images/PRS.png" alt="" width="250"/></center>
+							</p>
+							<p> 
+								Where &beta;<sub>j</sub> is the beta score (weight) for the jth SNP, SNP<sub>ij</sub> is a binary value representing whether the ith 
+								individual has the jth SNP. 
+								The formula is followed from https://sahirbhatnagar.com/blog/2017/08/11/polygenic-risks-scores-with-data.table-in-r/.
+							</p>
+							<p>
+								After performing these calculations, we have generated a data set that reflects the population. However, there is still a major 
+								issue: the disease risk of an individual is unknown. Arguably, this can be assessed by looking at the polygenic risk scores, but 
+								it may be better to bias the data set in order to know exactly which individuals are at each risk level. In order to apply such a 
+								bias, determining what proportion of the data set should be biased and how much they should be biased by is necessary. Given that 
+								general disease trends follow a distribution where the majority of individuals is at low risk, a small portion is at medium risk, 
+								and the smallest portion is at high risk, the assignment of these classes will be 60%, 30%, and 10%, respectively. In order to 
+								apply bias to each of these subsets of the data set, those at low risk will experience no bias (no scaling), those with medium 
+								risk will have a 50% increased likelihood of having each SNP, and those at high risk will have a 100% (double) increased likelihood 
+								of having each SNP. This bias is applied by scaling the risk allele frequency vector for each SNP. After this is done, the data 
+								set is now ready, the class of each individual is now known, and the biased data set can be used to train a model to learn each 
+								of the classes.
+							</p>
+							<p> <h3><b>Exploratory Data Analysis (EDA)</b></h3>
+								After simulating the individual-level SNP data, it is important to evaluate its contents and features. For this exploration, a 
+								simulated cardiovascular disease data set will be explored. The data will change depending on the disease that is passed into our 
+								pipeline; therefore this is an example.
+							</p>
+							<p>
+								The data set consists of 10,000 individuals, with each individual represented as one row in the data set. There are a total of 
+								778 columns, from which 776 are individual SNPs and the remaining two are the polygenic risk score and class label columns. Each 
+								of the SNP columns contain binary values (0 and 1) representing whether an individual has the SNP. The polygenic risk score column 
+								consists of floats and the class label column consists of three integers, each of which represents a class. Given the method of 
+								simulating, the data consists of roughly 60% low risk, 30% medium risk, and 10% high risk individuals. The distribution of polygenic 
+								risk scores as a whole has a right skew (Figure 1) and the same persists when looking at the distributions at a class level. Due to 
+								the bias that was integrated into the simulation, there is a clear difference in the distribution of polygenic risk scores across 
+								the different classes (Figure 2).<br>
+								<center><img src="images/distributions.png" alt="" width="650"/></center>
+							</p>
+							<p>
+								It is also important to evaluate the minor allele frequencies (MAFs) of the SNPs as they directly influence the likelihood of an 
+								observation having a SNP and ultimately affects the eventual polygenic risk score. There is no clear shape in the distribution of 
+								minor allele frequencies as there exists much variability (Figure 3). The smallest minor allele frequency is .00039 and the largest 
+								is .498. Intuitively, one may assume that there exists a relationship between the minor allele frequency of a SNP and their contribution 
+								in developing coronary heart disease. In other words, the smaller the frequency of a SNP, the larger its influence. Although the 
+								majority of the SNPs contribute a minimal amount regardless of frequency, those that are the most influential do tend towards lower 
+								minor allele frequencies (Figure 4).<br>
+								<center><img src="images/maf.png" alt="" width="650"/></center>
+							</p>
+							<p>
+								As for the model, it will only consider SNPs that were found to be associated with coronary heart disease on a separate GWAS. This 
+								separate GWAS identifies a total of 709 SNPs, of which 669 are in the simulated data set. Therefore, the model will train on 669 of 
+								776, or 86%, of the SNPs in the GWAS used to generate the data. Using this subset of features, the model will attempt to classify 
+								each individual into their respective class. 
+							</p>
+							<p> <h3><b>Model Building</b></h3>
+								The model building process will use the simulated data set that was generated along with the second GWAS Catalog data set that was 
+								acquired. The simulated data set is treated as ‘ground truth’. This means that all the information to explain the disease risk label 
+								is in the data set; this is the case according to the way the data was simulated. If a model were trained on this data, it would be 
+								trivial as the model is given all the information to predict the label. Therefore, the other GWAS data set is used to build the model. 
+								The second data set informs the model of which subset of SNPs to train on. For example, if the simulated data set were to have 700 
+								SNPs but the model data set contained only 300 of those 700 SNPs (the overlap), only 300 SNPs will be used to build the model and make 
+								predictions. The aim of this process is to precisely mimic the fashion in which training data is typically structured. Training data 
+								does not typically contain all the explanatory variables that explain the label. In fact, it typically contains only a subset of the 
+								information needed. This forces the model to learn the underlying data and make informed predictions. 
+							</p>
+							<p>
+								After the data was filtered through the process above, it was then ready for model building. We explored a variety of models and tuned 
+								their parameters in order to figure out which is best for disease risk prediction. The models we explored include Support Vector Machines, 
+								Naive Bayes, Logistic Regression, K Nearest Neighbors, and Random Forest.
+							</p>
+							<p>
+								Once the models were constructed, the results were validated. It is important to note that accuracy is not the only metric that is 
+								important to assess the performance of the models. Since we are working with predicting the disease risk of individuals, Type I and Type 
+								II errors are also very important. It is potentially dangerous to classify an individual as low risk when they are actually high risk (Type 
+								II, False Negative). Additionally, classifying an individual as high risk when they are actually low risk could cause the individual some 
+								unnecessary stress within themselves and their families (Type I, False Positive). Therefore, it is important to control for such errors in 
+								our model. To do so, we will prioritize the maximization of Recall (TP/TP+FN) since it is an indicator of the dangerous False Negatives in 
+								our model but at the same time attempt to maximize Precision (TP/TP+FP) since it is an indicator of False Positives.
+							</p>
+							<p>
+								In general:<br>
+								- <b>Accuracy</b> is a great metric only when you have symmetric datasets (meaning false negatives & false positives counts are close) and when 
+								false negatives & false positives have similar costs. If the cost of false positives and false negatives are different, then F1-score is 
+								the best option. F1-score is best if you have an uneven class distribution.<br>
+								- <b>Recall/Sensitivity</b> is the best metric if the idea of false positives is far better than false negatives. In other words, if the occurrence 
+								of false negatives is unaccepted/intolerable, then you'd rather get some extra false positives (false alarms) over saving some false negatives, 
+								like in the diabetes example. In that example, you'd rather get some healthy people labeled diabetic over leaving a diabetic person labeled 
+								healthy.<br>
+								- <b>Precision</b> is the best metric if you want to be more confident of your true positives. For example, with spam emails, you'd rather have some 
+								spam emails in your inbox rather than some regular emails in your spam box. So, the email company wants to be extra sure that email Y is spam 
+								before they put it in the spam box and you never get to see it.<br>
+								- <b>Specificity</b> is the best metric if you want to cover all true negatives, meaning you don't want any false alarms (false positives). For example, 
+								if you're running a drug test in which all people who test positive will immediately go to jail, then you don't want anyone drug-free going to 
+								jail. In this example, false positives are intolerable.
+							</p>
 						</div>
 					</section>
 
@@ -62,15 +243,192 @@
 					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
 						<div class="content">
 							<h2><b>Results</b></h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
-							<div>
-								<img src="images/spotlight01.jpg" alt="" width="450"/>
-							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
-							<div>
-								<img src="images/spotlight03.jpg" alt="" width="450"/>
-							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
+							<p>
+								For each model, we got the accuracy and F1 score for the baseline model, calculated the average specificity between each of the three classes (Low Risk, 
+								Medium Risk, and High Risk), and performed grid search cross validation to perform hyperparameter tuning and get the optimal set of parameters. Then, 
+								we plotted Receiver Operating Characteristic (ROC) and Precision-Recall (P-R) curves to provide a visual way of comparing each model’s results. For 
+								context, an ROC curve is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is 
+								varied. The ROC curve is created by plotting the true positive rate against the false positive rate at various threshold settings. A P-R curve is a plot 
+								of the precision (y-axis) and the recall (x-axis) for different thresholds, much like the ROC curve. Essentially, for an ROC curve, as the curve moves higher 
+								up and to the left, the better the model performs for a particular class since the true positive rate is maximized and the false positive rate is minimized 
+								across various thresholds. Similarly, for a P-R curve, as the curve moves higher up and to the right, the better the model performs for a particular class 
+								since both precision and recall are maximized across various thresholds.  Here are the ROC and P-R curves for each model:
+							</p>
+
+						</div>
+					</section>
+						<!-- Gallery -->
+						<div class="gallery style2 medium lightbox onscroll-fade-in">
+							<article>
+								<a href="images/gallery/lr_pr.png" class="image">
+									<img src="images/gallery/lr_pr.png" alt="" />
+								</a>
+								<div class="caption">
+									<h3>Logistic Regression</h3><br>
+									<h3>Precision & Recall</h3>
+									<br>
+									<ul class="actions fixed">
+										<li><span class="button small">View</span></li>
+									</ul>
+								</div>
+							</article>
+							<article>
+								<a href="images/gallery/lr_roc.png" class="image">
+									<img src="images/gallery/lr_roc.png" alt="" />
+								</a>
+								<div class="caption">
+									<h3>Logistic Regression</h3><br>
+									<h3>ROC Curve</h3>
+									<br>
+									<ul class="actions fixed">
+										<li><span class="button small">View</span></li>
+									</ul>
+								</div>
+							</article>
+							<article>
+								<a href="images/gallery/knn_pr.png" class="image">
+									<img src="images/gallery/knn_pr.png" alt="" />
+								</a>
+								<div class="caption">
+									<h3>K Nearest Neighbors</h3><br>
+									<h3> Precision & Recall</h3>
+									<br>
+									<ul class="actions fixed">
+										<li><span class="button small">View</span></li>
+									</ul>
+								</div>
+							</article>
+							<article>
+								<a href="images/gallery/knn_roc.png" class="image">
+									<img src="images/gallery/knn_roc.png" alt="" />
+								</a>
+								<div class="caption">
+									<h3>K Nearest Neighbors</h3><br>
+									<h3>ROC Curve</h3>
+									<br>
+									<ul class="actions fixed">
+										<li><span class="button small">View</span></li>
+									</ul>
+								</div>
+							</article>
+							<article>
+								<a href="images/gallery/svm_pr.png" class="image">
+									<img src="images/gallery/svm_pr.png" alt="" />
+								</a>
+								<div class="caption">
+									<h3>Support Vector Machine</h3><br>
+									<h3>Precision & Recall</h3>
+									<br>
+									<ul class="actions fixed">
+										<li><span class="button small">View</span></li>
+									</ul>
+								</div>
+							</article>
+							<article>
+								<a href="images/gallery/svm_roc.png" class="image">
+									<img src="images/gallery/svm_roc.png" alt="" />
+								</a>
+								<div class="caption">
+									<h3>Support Vector Machine</h3><br>
+									<h3>ROC Curve</h3>
+									<br>
+									<ul class="actions fixed">
+										<li><span class="button small">View</span></li>
+									</ul>
+								</div>
+							</article>
+							<article>
+								<a href="images/gallery/nb_pr.png" class="image">
+									<img src="images/gallery/nb_pr.png" alt="" />
+								</a>
+								<div class="caption">
+									<h3>Naive Bayes</h3><br>
+									<h3>Precision & Recall</h3>
+									<br>
+									<ul class="actions fixed">
+										<li><span class="button small">View</span></li>
+									</ul>
+								</div>
+							</article>
+							<article>
+								<a href="images/gallery/nb_roc.png" class="image">
+									<img src="images/gallery/nb_roc.png" alt="" />
+								</a>
+								<div class="caption">
+									<h3>Naive Bayes</h3><br>
+									<h3>ROC Curve</h3>
+									<br>
+									<ul class="actions fixed">
+										<li><span class="button small">View</span></li>
+									</ul>
+								</div>
+							</article>
+							<article>
+								<a href="images/gallery/rf_pr.png" class="image">
+									<img src="images/gallery/rf_pr.png" alt="" />
+								</a>
+								<div class="caption">
+									<h3>Random Forest</h3><br>
+									<h3>Precision & Recall</h3>
+									<br>
+									<ul class="actions fixed">
+										<li><span class="button small">View</span></li>
+									</ul>
+								</div>
+							</article>
+							<article>
+								<a href="images/gallery/rf_roc.png" class="image">
+									<img src="images/gallery/rf_roc.png" alt="" />
+								</a>
+								<div class="caption">
+									<h3>Random Forest</h3><br>
+									<h3>ROC Curve</h3>
+									<br>
+									<ul class="actions fixed">
+										<li><span class="button small">View</span></li>
+									</ul>
+								</div>
+							</article>
+							<article>
+								<a href="images/gallery/dt_pr.png" class="image">
+									<img src="images/gallery/dt_pr.png" alt="" />
+								</a>
+								<div class="caption">
+									<h3>Decision Tree</h3><br>
+									<h3>Precision & Recall</h3>
+									<br>
+									<ul class="actions fixed">
+										<li><span class="button small">View</span></li>
+									</ul>
+								</div>
+							</article>
+							<article>
+								<a href="images/gallery/dt_roc.png" class="image">
+									<img src="images/gallery/dt_roc.png" alt="" />
+								</a>
+								<div class="caption">
+									<h3>Decision Tree</h3><br>
+									<h3>ROC Curve</h3>
+									<br>
+									<ul class="actions fixed">
+										<li><span class="button small">View</span></li>
+									</ul>
+								</div>
+							</article>
+						</div>
+					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+						<div class="content">
+							<p>
+								After running each model, we compiled the model results into a dataframe that contains each model’s accuracy, F1 score, and average specificity for both 
+								the baseline model and grid search optimized model. Here is the dataframe:<br>
+								<center><img src="images/model_results.png" alt="" width="800"/></center>
+							</p>
+							<p>
+								From our results, we find that Support Vector Machine performed the best on every metric by having 100% for each metric. We determined that the SVM was 
+								genuinely performing the best by extracting meaningful features rather than overfitting to our data set. However, it may be taking advantage of the way 
+								in which the data was simulated (to be explored further). Naive Bayes and Random Forest also performed really well and could be great alternative models 
+								to use in our project.
+							</p>
 						</div>
 					</section>
 
@@ -78,174 +436,48 @@
 					<section class="wrapper style1 align-left">
 						<div class="inner">
 							<h2><b>Conclusion</b></h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum.</p>
+							<p>Because Support Vector Machine performed the best out of the various models, we decided to use SVM as our model for disease prediction, at least when we 
+								worked with coronary heart disease data. We will continue to explore other diseases to get a better understanding of each model’s performance in disease 
+								prediction.</p>
 						</div>
-
-						<!-- Gallery -->
-							<div class="gallery style2 medium lightbox onscroll-fade-in">
-								<article>
-									<a href="images/gallery/fulls/01.jpg" class="image">
-										<img src="images/gallery/thumbs/01.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Ipsum Dolor</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/02.jpg" class="image">
-										<img src="images/gallery/thumbs/02.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Feugiat Lorem</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/03.jpg" class="image">
-										<img src="images/gallery/thumbs/03.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Magna Amet</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/04.jpg" class="image">
-										<img src="images/gallery/thumbs/04.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Sed Tempus</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/05.jpg" class="image">
-										<img src="images/gallery/thumbs/05.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Ultrices Magna</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/06.jpg" class="image">
-										<img src="images/gallery/thumbs/06.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Sed Tempus</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/07.jpg" class="image">
-										<img src="images/gallery/thumbs/07.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Ipsum Lorem</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/08.jpg" class="image">
-										<img src="images/gallery/thumbs/08.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Magna Risus</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/09.jpg" class="image">
-										<img src="images/gallery/thumbs/09.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Tempus Dolor</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/10.jpg" class="image">
-										<img src="images/gallery/thumbs/10.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Sed Etiam</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/11.jpg" class="image">
-										<img src="images/gallery/thumbs/11.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Magna Lorem</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-								<article>
-									<a href="images/gallery/fulls/12.jpg" class="image">
-										<img src="images/gallery/thumbs/12.jpg" alt="" />
-									</a>
-									<div class="caption">
-										<h3>Ipsum Dolor</h3>
-										<p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-										<ul class="actions fixed">
-											<li><span class="button small">Details</span></li>
-										</ul>
-									</div>
-								</article>
-							</div>
-
 					</section>
 
 				<!-- Six -->
 					<section class="wrapper style1 align-left">
 						<div class="inner">
 							<h2>References</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum.</p>
+							<p>
+								1. Cáceres, J. J., & Paccanaro, A. (2019, July 5). Disease gene prediction for molecularly uncharacterized diseases. Retrieved from
+								 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6636748/
+							</p>
+							<p>
+								2. Genome-Wide Association Studies (GWAS). (n.d.). Retrieved from https://www.genome.gov/genetics-glossary/Genome-Wide-Association-Studies
+							</p>
+							<p>
+								3. Schrodi, S. J., Mukherjee, S., Shan, Y., Tromp, G., Sninsky, J. J., Callear, A. P., … Weeks, D. E. (2014, June 2). Genetic-based prediction 
+								of disease traits: prediction is very difficult, especially about the future. Retrieved from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4040440/
+							</p>
+							<p>
+								4. SNP. (n.d.). Retrieved May 17, 2020, from https://www.nature.com/scitable/definition/snp-295/
+							</p>
+							<p>
+								5. Uddin, S. (2019, December 21). Comparing different supervised machine learning algorithms for disease prediction. Retrieved May 17, 2020, 
+								from https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-019-1004-8
+							</p>
+							<p>
+								6. Wai, D. S., William, Melissa, Richard, O’Sullivan, & Justin. (2019, March 11). Machine Learning SNP Based Prediction for Precision Medicine.
+								Retrieved May 17, 2020, from https://www.frontiersin.org/articles/10.3389/fgene.2019.00267/full
+							</p>
+							<p>
+								7. Wray, N. R., Yang, J., Hayes, B. J., Price, A. L., Goddard, M. E., & Visscher, P. M. (2013, July). Pitfalls of predicting complex traits from
+								SNPs. Retrieved from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4096801/
+							</p>
 						</div>
 					</section>
 
 				<!-- Footer -->
 					<footer class="wrapper style1 align-center">
 						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-								<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
-							</ul>
 							<p>&copy; UCSD 2020. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 						</div>
 					</footer>
