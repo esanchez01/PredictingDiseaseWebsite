@@ -31,10 +31,19 @@
 						</div>
 					</section>
 
+					<section class="wrapper style1 align-left">
+						<div class="inner">
+							<h2>Source Code</h2>
+							<p>
+								Source code and detailed Jupyter notebooks for this project can be accessed <a href="https://github.com/esanchez01/PredictingDisease" target="_blank">here</a>.
+							</p>
+						</div>
+					</section>
+					
 					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
 						<div class="content">
 							<h2><b>Abstract</b></h2>
-							<p>Traditional epidemiology techniques, most notably polygenic risk scoring, have been used by researchers and well-known companies, such as 23andMe, to calculate the disease risk of patients and consumers. However, recent research has begun to uncover limitations in such techniques due to their inability to model high dimensional data with complex interactions (Wai, 2019). As humans, millions of potentially disease-contributing genetic variants exist in our genome, so the inability to leverage such information limits the power of these techniques to accurately determine the disease risk of individuals. In this report, we explore the viability of machine learning in disease risk prediction. We show how Support Vector Machines (SVMs) outperform other popular machine learning algorithms, such as Logistic Regression, K Nearest Neighbors, Random Forest, and Naive Bayes. SVMs help address the high dimensional data issues in traditional techniques and offer an alternate and possibly better method to predict disease risk in individuals.</p>
+							<p>Traditional epidemiology techniques, most notably polygenic risk scoring, have been used by researchers and well-known companies, such as Takeda, MiCom Labs, and 23andMe, to calculate the disease risk of patients and consumers. However, recent research has shown limitations in polygenic risk scoring due to its inability to model high dimensional data with complex interactions (Wai, 2019). As humans, millions of potentially disease-contributing genetic variants exist in the genome, so the inability to leverage such information limits the power of polygenic risk scoring to accurately determine the disease risk of individuals. In this report, the viability of machine learning in disease risk prediction for Coronary Artery Disease, Alzheimer’s, and Diabetes Mellitus is explored. It is shown how machine learning models, including Support Vector Machines (SVMs), Logistic Regression, K Nearest Neighbors, Decision Trees, Random Forest, and Gaussian Naive Bayes, compare in their ability to effectively predict disease risk and how they may offer alternate and possibly better methods over traditional techniques.</p>
 						</div>
 					</section>
 
@@ -42,18 +51,27 @@
 					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
 						<div class="content">
 							<h2><b>Introduction</b></h2>
-							<p>Genetic studies have enabled researchers and medical practitioners to better understand the underlying relationships between genes and human traits (Tian, 2019). However, these traits extend to well beyond those that are not so easily seen or determined, such as disease. This relationship between genes and diseases has been investigated through Genome Wide Association Studies (GWASs), which analyze the entire human genome to find genetic variants associated with specific traits and diseases (“Genome-Wide Association Studies,” n.d.). The genetic variants that are commonly investigated are Single Nucleotide Polymorphisms (SNPs), which are the most common form of genetic variation in the human genome. A SNP represents a single nucleotide difference in the genome. To clarify, the DNA is composed of four nucleotide bases: Thymine, Cytosine, Adenine, and Guanine. If more than 1% of the population does not have the same nucleotide at a specific position in the genome, this is then considered a SNP (“SNP,” n.d.). However, a particular SNP does not necessarily contribute towards the development of a particular disease. This is precisely the reason why GWASs are so powerful; they investigate and uncover the variants that contribute towards disease.</p>
+							<p>Genetic studies have enabled researchers and medical practitioners to better understand the underlying relationships between genes and human traits (Tian, 2019). However, these traits extend to well beyond those that are not so easily seen or determined, such as disease. This relationship between genes and diseases has been investigated through Genome Wide Association Studies (GWASs), which analyze the entire human genome to find genetic variants associated with specific traits and diseases (“Genome-Wide Association Studies,” n.d.). </p>
 							<p>
-								After compiling results from GWASs, researchers are able to estimate the potential risk an individual has in developing a particular disease. A common method of calculating such risk is through polygenic risk scoring, which weighs SNPs according to their importance in the development of a disease and sums each risk score together. However, recent research has revealed that such a method is unable to effectively model high dimensional data (Wai, 2019). Given that the number of SNPs that contribute towards a disease can be in the thousands, this shortcoming becomes an issue. In an effort to circumvent such an issue, we plan to explore the viability of machine learning in disease risk prediction. Popular machine learning algorithms, such as Support Vector Machines, K Nearest Neighbors, Logistic Regression, Random Forest, and Naive Bayes will all be explored. Coronary Heart Disease will initially be explored and then expanded to include other diseases.
+								The genetic variants that are commonly investigated are Single Nucleotide Polymorphisms (SNPs), which are the most common form of genetic variation in the human genome. A SNP represents a single nucleotide difference in the genome. To clarify, the DNA is composed of four nucleotide bases: Thymine, Cytosine, Adenine, and Guanine. If more than 1% of the population does not have the same nucleotide at a specific position in the genome, this is then considered a SNP (“SNP,” n.d.). However, a particular SNP does not necessarily contribute towards the development of a particular disease. This is precisely the reason why GWASs are so powerful; they investigate and uncover the variants that do indeed contribute towards disease.
 							</p>
 							<p>
-								Through this project we hope to answer the following research questions:<br>
-								<b>1. How do machine learning techniques perform in predicting disease risk?<br>
-								2. How does this performance vary across different diseases? </b>
+								After compiling results from GWASs, researchers are able to estimate the potential risk an individual has in developing a particular disease. A common method of calculating such risk is through polygenic risk scoring, which weighs SNPs according to their importance in the development of a disease and sums each risk score together. However, recent research has shown that polygenic risk scores cannot effectively model high dimensional data (Wai, 2019). Given that many SNPs can contribute towards a disease, this shortcoming becomes an issue. To address this issue, this project sets out to explore the viability of machine learning in disease risk prediction, by testing the following machine learning models on genetic data: Support Vector Machines, K Nearest Neighbors, Logistic Regression, Decision Trees, Random Forest, and Gaussian Naive Bayes.
 							</p>
 							<p>
-								Recent research has uncovered promising results in using machine learning techniques for disease risk prediction. Currently, Support Vector Machines appear to be the most popular for its predictive power and ability to handle highly dimensional information (Uddin, 2019). We also anticipate that the eventual model will vary in performance for diseases of different complexities. In other words, diseases that have more SNPs contributing to it will be more difficult to model than those having less SNPs.
+								In exploring these models across different diseases, this project aims to answer the following two research questions:<br>
+								<b>1. How do machine learning techniques perform in predicting disease risk and how do they compare?<br>
+								2. How does performance vary across different diseases? </b>
 							</p>
+							<input type="checkbox" class="read-more-state4" id="post-4" />
+							<p class="read-more-wrap4">
+								<span class="read-more-target4">The methods shown here are by no means groundbreaking in their novelty, but should provide more context in how different performance metrics other than accuracy can be used to measure the success of different models. Previous research has uncovered promising results in using machine learning techniques for disease risk prediction; Support Vector Machines are especially popular, due to the algorithm’s predictive power on genetic data, and ability to handle high dimensional information (Uddin, 2019). However, much of this previous research uses accuracy alone as the only metric by which to compare different models. The results of this project suggest that Gaussian Naive Bayes and Support Vector Machines perform the best in terms of accuracy, precision, and recall. An important consideration in assessing the different models is that accuracy alone is not enough for determining which models are best. In solving a task like disease risk prediction, where those who actually have a disease will always be the minority, using accuracy as the only metric biases one towards thinking that a model predicting “all individuals are disease-free” is sufficient, because the majority of the individuals will, in fact, be disease-free.
+									<br>
+									<br>
+								In order to address the shortcomings of analyzing accuracy alone, this project focuses on analyzing precision and recall, because recall captures important aspects of model performance when considering disease risk prediction that accuracy alone does not address. The performance of models varied across diseases, and such variance is likely explained by the number of SNPs found to be contributing towards each disease (i.e. if a disease has more SNPs to use for simulation, there will be less variance if the data are simulated a second time).
+								</span>
+							</p>
+							<label for="post-4" class="button primary read-more-trigger4" style="margin-left: 40%"></label>
 						</div>
 					</section>
 
@@ -63,25 +81,27 @@
 							<h2><b>Methods</b></h2>
 							
 							<p> <h3><b>The Data</b></h3>
-								For the purposes of this project, data was acquired from the GWAS Catalog (https://www.ebi.ac.uk/gwas/). Data for {INSERT DISEASES} was all collected from this source. The data was ingested directly from the site’s public API. The GWAS Catalog is a publically available collection of Genome Wide Association Studies results, created collaboratively between EMBL-EBI and NHGRI, which contains summary statistics for the most significant SNP-disease associations found in published GWASs. To ensure the accuracy and validity of the data, the data is carefully curated by experienced molecular biologists. In addition, given that each of the GWASs is conducted independently, the individuals involved in each of these studies come from a variety of different samples and populations. For coronary heart disease, for example, which was the first disease that was examined in this project, the data is based on individuals of European, Asian, African, Middle Eastern, Native American, and other Admixed ancestries who were analyzed through statistical meta analysis techniques. Not much further information for this sample in this GWAS is provided. It should be noted that information for GWASs is typically hidden to ensure the privacy of the individuals in the study. For more information on the data being used, please visit https://www.ebi.ac.uk/gwas/docs/about. 
+								For the purposes of this project, data for Coronary Artery Disease, Alzheimer’s Disease, and Diabetes Mellitus was acquired from the GWAS Catalog (https://www.ebi.ac.uk/gwas/). The GWAS Catalog is a publically available collection of Genome Wide Association Studies’ results, created collaboratively between EMBL-EBI and NHGRI, and it contains summary statistics for the most significant SNP-disease associations found in published GWASs for different traits. Given that each of the GWASs is conducted independently, the data for different traits come from a variety of different samples and populations. For Coronary Artery Disease (a disease that is very well studied and thus, many GWASs have been conducted on it), for example, which was the first disease examined in this project, the data contains individuals from European, Asian, African, Middle Eastern, Native American, and other Admixed ancestries. It should be noted that detailed information beyond simple summary statistics is typically hidden to ensure the privacy of the individuals studied in each GWAS. For more information on the data being used, please visit https://www.ebi.ac.uk/gwas/docs/about. 
 							</p>
 
 							<input type="checkbox" class="read-more-state2" id="post-2" />
 							<p class="read-more-wrap2">
-								<span class="read-more-target2">This data is relevant to the project at hand as knowing which SNPs are the strongest indicators for the development of specific diseases is of interest. For coronary heart disease, the GWAS Catalog provides summary statistics on the most relevant SNPs to the disease. From this, exactly which SNPs to look for in an individual’s variants to better predict whether that individual is at a higher risk of coronary heart disease is known.
+								<span class="read-more-target2">For each of the diseases that will be explored, the GWAS Catalog provides summary statistics on the most relevant SNPs to the development of each disease. From these statistics, this project will attempt to simulate individual-level data, and use this data to create predictive models using the SNPs that are found to be relevant by the respective GWAS. These models are built on SNPs and will be trained to distinguish between three different risk classes (low risk, medium risk, high risk) for each disease. 
 									<br>
 									<br>
-									In terms of the relationship and appropriateness of the data to our project, we will be using the columns containing information on the variant ID (SNP identifier), beta value (weight), and the corresponding risk allele frequency of SNPs. For every disease that is modeled, a total of two GWAS Catalog data sets will be collected. One of these data sets will be used for simulating a population and the other for model building. Detailed information as to why and how this is done is located in the ‘Population Simulation’ section.
+									In order to simulate the data, the variant ID (SNP identifier), beta value (weight), and the corresponding effect allele frequency of SNPs will be used. More detail can be found in the Population Simulation section below, but the simulation for each disease will be built using two Genome Wide Association Studies. One of these GWASs will be used for simulating a population used for training and the other for model building (and testing).
 								</span>
 							</p>
 							<label for="post-2" class="button primary read-more-trigger2" style="margin-left: 40%"></label>
 							
 							<p> <h3><b>Data Cleaning</b></h3>
-								From the acquired GWAS result data, only the variant ID, beta value, and risk allele frequency columns were needed; the other 35 columns were subsequently discarded. Since such information was required, observations that contained missing values in these columns were removed. For example, without beta values, the SNPs are no longer useful as we do not know their contribution to a disease. In the data set that will be used for model building, all SNPs were kept as their beta values are not of interest; the model should ultimately be learning them. Interestingly, duplication of SNP and beta values appeared in each data set and were subsequently removed. After all this is done, a data frame consisting of three columns with no missing values or duplicates is created and will be used for simulating. Also, a data frame consisting of a single SNP column is created and will be used for model building.
-
+								From the acquired GWAS result data, only the variant ID, beta value, and effect allele frequency columns were needed; the other 35 columns were subsequently discarded. Since such information was required, observations that contained missing values in these columns were removed. For example, without beta values, the SNPs are no longer useful as their contribution to a disease is unknown. Interestingly, duplication of SNPs appeared in each data set, but the GWAS catalog only reports one beta value, so subsequent entries without a beta value can be removed. After all this is done, a data frame consisting of three columns (variant ID, beta value, effect allele frequency) with no missing values or duplicates is created and will be used for simulating. Also, a data frame consisting of a single SNP column is created from the second GWAS and will be used for model building.
 							</p>
 							<p> <h3><b>Population Simulation</b></h3>
-								While gathering data, we were unable to acquire individual-level SNP data. While this data is available (Keane, 2020), data access is restricted and access was not granted. This data is critical for the project at hand as it is the foundation for training and validating the eventual model. Given that individual-level SNP data of individuals contains personally identifiable information (PII) and requesting access to this data requires someone with more scientific credentials to request access, we were unable to work with individual-level SNP data. As a solution, we created a pipeline to simulate this individual-level SNP data for multiple diseases using the information provided by the GWAS Catalog. This added component requires the collection of two sets of GWAS data sets for a particular disease; one data set is used for simulation and the other is used for model building. The model building data set will inform the model of the SNPs to consider when training. This will be discussed further in the model building section.
+								As previously stated individual-level SNP data on the GWAS catalog is restricted due to privacy reasons. While this data is available (Keane, 2020), data access is restricted, and access was not granted. This data is critical for the project at hand as it is the foundation for training and validating the eventual model. Given that individual-level SNP data of individuals contains personally identifiable information (PII) and requesting access to this data requires someone with more scientific credentials to request access, it was unattainable for this project.
+							</p>
+							<p>
+								To solve the lack of individual-level SNP data, the summary statistics publicly available on the GWAS catalog were used to simulate individual-level SNP data, using the effect allele frequencies of each SNP to create individuals with a realistic distribution of SNPs. The simulation process requires the collection of two sets of GWAS data sets for each disease; one data set is used for simulating the individual-level SNP data, and the other is used for model building. Information from the first GWAS will be used to generate a synthetic population and assign different risk classes. The second GWAS will then be relied upon to mimic real data collection—using only the SNPs found in the second GWAS for model building mirrors how real data collection on a specific trait only results in finding a subset of all the things that explain that trait.
 							</p>
 
 							<input type="checkbox" class="read-more-state" id="post-1" />
@@ -89,7 +109,7 @@
 								<span class="read-more-target">The first step into simulating the data is identifying the relevant SNPs (variant ID) and their contribution to a particular disease (beta score). The next step is identifying the risk allele frequencies for the SNPs. This allows us to know the frequency of a SNP in the general population.
 									<br>
 									<br>
-										A total of 10,000 individuals were simulated for the simulation data set. Each individual was assigned an allele at each SNP position according to that SNP’s risk allele frequency in the population. For example, if the risk allele frequency of a SNP is 10%, every individual would have a 10% chance of having the alternative allele assigned to them. This is done for every SNP in the data set and repeated for all 10,000 individuals. In the end, the frequency of the SNPs in the data set closely reflect that of the initial risk allele frequencies. From there, a polygenic risk score (PRS) was assigned to each individual by taking the dot product of the beta scores and the binary SNP values. This can be described by the following formula:<br>
+									The first step in simulating the data is identifying the relevant SNPs (variant ID) and their contribution to a particular disease (beta score). The next step is identifying the effect allele frequencies for the SNPs, which describes the frequency of a SNP in the general population. This information is available in the acquired GWAS data set. A total of 1,000 individuals were simulated for each disease. In the simulated dataset, each individual was assigned an allele at each SNP position according to that SNP’s effect allele frequency in the population. For example, if the effect allele frequency of a SNP is 10%, every individual would have a 10% chance of having that SNP. This is done for every SNP in the data set and repeated for all 1,000 individuals. In the end, the frequency of the SNPs in the data set closely reflect that of the initial effect allele frequencies. From there, a polygenic risk score (PRS) was assigned to each individual by taking the dot product of the beta scores and the binary SNP values. This can be described by the following formula:<br>
 										<br>
 										<img src="images/PRS.png" alt="" width="250" style="margin-left: 35%;"/>
 									<br>
@@ -99,57 +119,122 @@
 										The formula is followed from https://sahirbhatnagar.com/blog/2017/08/11/polygenic-risks-scores-with-data.table-in-r/.
 									<br>
 									<br>
-										Disease risk was then assigned to each simulated individual by including a ‘bias’ step into the above simulation pipeline. In order to apply such a bias, determining what proportion of the data set should be at different risk levels and how much they should be biased by was necessary. Given that general disease trends follow a distribution where the majority of individuals are at low risk, a small portion are at medium risk, and the smallest portion are at high risk, the assignment of these classes was 60%, 30%, and 10%, respectively. In order to apply bias to each of these classes of the data set, the SNPs of those at low risk will be scaled according to a sampled value in the set of numbers between .1-.5, those at medium risk will be scaled according to a sampled value in the set of numbers between .5-.75,  and those at high risk will be scaled according to a sampled value in the set of numbers between .75-1. For example, the risk allele frequency of a particular SNP for an individual at low risk can be scaled by .3 and an individual at high risk can be scaled by .9. This method creates individuals at different disease risk levels. It should be noted that the scaled value for each disease risk level is sampled from a range of values to add variability and noise to the data set. After this is done, the data set is now ready, the class of each individual is known, and the scaled data set can be used to train a model to learn each of the classes.
+									Disease risk was then assigned to each simulated individual by including a ‘bias’ step into the above simulation pipeline. In order to apply such a bias, determining what proportion of the data set should be at different risk levels and how much they should be biased by was necessary. Given that general disease trends follow a distribution where the majority of individuals are at low risk, a smaller portion are at medium risk, and the smallest portion are at high risk, the assignment of these classes was 60%, 30%, and 10%, respectively. In order to apply bias to each of these classes of the data set, the SNPs’ effect allele frequencies of those at low risk will be scaled according to a sampled factor in the set of numbers between 0.1-0.5, those at medium risk will be scaled according to a sampled factor in the set of numbers between 0.5-0.75,  and those at high risk will be scaled according to a sampled factor in the set of numbers between 0.75-1.0. This method creates individuals with different numbers of SNPs, and those with less SNPs are considered “low risk,” while those with the most SNPs are considered “high risk”.
+									<br>
+									<br>
+									This simulation process is applied to each disease: for each disease a GWAS study that contains relevant SNPs and effect allele frequencies is used to build a large dataset where each row is an individual, and each column is a SNP. Then, entry(i, j) is a binary value that says whether individual i has SNP j. An example of the structure of the simulated data is shown in Table 1 below.<br>
+										<br>
+										<img src="images/sim_table.png" alt="" width="650" style="margin-left: 15%;"/>
 								</span>
 							</p>
 							<label for="post-1" class="button primary read-more-trigger" style="margin-left: 40%"></label>
 
 							<p> <h3><b>Exploratory Data Analysis (EDA)</b></h3>
-								After simulating individual-level SNP data, it is important to evaluate its contents and features. For this exploration, a simulated cardiovascular disease data set will be explored. Please note that multiple diseases are included in this project; therefore, this exploration demonstrates the general contents and statistics in a simulated individual-level SNP data set. 
+								After simulating individual-level SNP data, it is important to evaluate its contents and features. For this exploration, a simulated Coronary Artery Disease data set will be explored. Please note that multiple diseases are included in this project; therefore, this exploration demonstrates the general contents and statistics in a simulated individual-level SNP data set.
 							</p>
 							<p>
-								The data set consists of 10,000 individuals, with each individual represented as one row in the data set. There are a total of 778 columns, from which 776 are individual SNPs and the remaining two are the polygenic risk score and class label columns. Each of the SNP columns contain binary values (0 and 1) representing whether an individual has the risk allele The polygenic risk score column consists of floats and the class label column consists of three integers, each of which represents a class. Given the method of simulating, the data consists of roughly 60% low risk, 30% medium risk, and 10% high risk individuals. The distribution of polygenic risk scores as a whole has a right skew (Figure 1) and the same persists when looking at the distributions at a class level. Due to the bias that was integrated into the simulation, there is a clear difference in the distribution of polygenic risk scores across the different classes (Figure 2).<br>
+								The data set consists of 10,000 individuals, with each individual represented as one row in the data set. There are a total of 996 columns, from which 994 are individual SNPs and the remaining two are the polygenic risk score and class label columns. Each of the SNP columns contains binary values (0 and 1) representing whether an individual has the effect allele. The polygenic risk score column consists of floats and the class label column consists of three integers, each of which represents a class. Given the method of simulating, the data consists of roughly 60% low risk, 30% medium risk, and 10% high risk individuals. The distribution of polygenic risk scores as a whole has a right skew (Figure 1) and the same persists when looking at the distributions at a class level. Due to the process of giving low risk individuals less risk SNPs and high risk individuals more risk SNPs, there is a clear difference in the distribution of polygenic risk scores across the different classes (Figure 2).<br>
 								<center><img src="images/distributions.png" alt="" width="650"/></center>
 							</p>
 
 							<input type="checkbox" class="read-more-state3" id="post-3" />
 							<p class="read-more-wrap3">
-								<span class="read-more-target3">It is also important to evaluate the minor allele frequencies (MAFs) of the SNPs as they directly influence the likelihood of an observation having a SNP and ultimately affects the eventual polygenic risk score. There is no clear shape in the distribution of minor allele frequencies as there exists much variability (Figure 3). The smallest minor allele frequency is .00039 and the largest is .498. Intuitively, one may assume that there exists a relationship between the minor allele frequency of a SNP and their contribution in developing coronary heart disease. In other words, the smaller the frequency of a SNP, the larger its influence. Although the majority of the SNPs contribute a minimal amount regardless of frequency, those that are the most influential do tend towards lower minor allele frequencies (Figure 4).
+								<span class="read-more-target3">It is also important to evaluate the effect allele frequencies (EAFs) of the SNPs as they directly influence the likelihood of an individual having a SNP and ultimately the polygenic risk score. There is no clear shape in the distribution of effect allele frequencies as there exists much variability (Figure 3). The smallest effect allele frequency is .0002 and the largest is .993. Intuitively, one may assume that there exists a relationship between the effect allele frequency of a SNP and their contribution in developing Coronary Artery Disease. In other words, the smaller the frequency of a SNP, the larger its influence. Although the majority of the SNPs contribute a minimal amount regardless of frequency, those that are the most influential do tend towards lower effect allele frequencies (Figure 4).
 									<br>
 									<br>
 									<img src="images/maf.png" alt="" width="650" style="margin-left: 18%;"/>
 									<br>
 									<br>
-									As for the model, it will only consider SNPs that were found to be associated with cardiovascular disease in the acquired GWAS data set that was designated for model building. This separate GWAS identifies a total of 709 SNPs, of which 669 are in the simulated data set. Therefore, the model will train on 669 of 776, or 86%, of the SNPs in the GWAS used to generate the data. Using this subset of features, the model will attempt to classify each individual into their respective class. 
+									As for the model, it will only consider SNPs that were found to be associated with Coronary Artery Disease in both acquired GWAS data sets. The first GWAS used to create the simulated data contains 915 SNPs, of which 672 are in the second GWAS. Therefore, the model will train on 672 of 994, or 68%, of the SNPs in the GWAS used to generate the data. The reasoning for doing this is that using a second GWAS and filtering the simulated dataset to only contains SNPs in the second GWAS is like gathering data in the real world; while a disease may actually have 1500 SNPs contributing towards it, a GWAS may only find 900 of those SNPs as being significant. In this simulation, the first GWAS is thought of as what is true, while the second GWAS is used to mimic data collection. Using this subset of features, the model will attempt to classify each individual into their respective class.
 								</span>
 							</p>
 							<label for="post-3" class="button primary read-more-trigger3" style="margin-left: 40%"></label>
 
 
 							<p> <h3><b>Model Building</b></h3>
-								During model generation, the simulated data set is treated as ‘ground truth’. This means that all the information to explain the disease risk label is in the data set; this is the case according to the way the data was simulated. If a model were trained on this data, it would be trivial as the model is given all the information to predict the label. Therefore, the acquired GWAS data set that was designated for model building is used to build the model. The second data set informs the model of which subset of SNPs to train on. For example, if the simulated data set were to have 700 SNPs but the model data set contained only 300 of those 700 SNPs (the overlap), only 300 SNPs will be used to build the model and make predictions. The aim of this process is to precisely mimic the fashion in which training data is typically structured. Training data does not typically contain all the explanatory variables that explain the label. In fact, it typically contains only a subset of the information needed. This forces the model to learn the underlying data and make informed predictions. 
+								As previously stated, during model generation, the data set simulated from the first GWAS is treated as ‘ground truth’. This means that all the information to explain the disease risk label is in the simulated data set. If a model were trained on this data, it would easily be able to predict the label because all the necessary information is in the dataset. By filtering the simulated dataset to only contain SNPs from the second GWAS, the model is forced to learn the underlying data and make informed predictions. 
 							</p>
 							<p>
-								After the data was filtered through the process above, it was then ready for model building. We explored a variety of models and tuned their parameters in order to figure out which is best for disease risk prediction. The models we explored include Support Vector Machines, Naive Bayes, Logistic Regression, K Nearest Neighbors, Decision Trees, and Random Forest. [DISCUSS PARAMETERS]
+								After the data was filtered through the process above, it was then ready for model building; models tested in this project included Support Vector Machines, Gaussian Naive Bayes, Logistic Regression, K Nearest Neighbors, Random Forest, and Decision Trees. Model parameters were then tuned to maximize performance.
 							</p>
+							<input type="checkbox" class="read-more-state5" id="post-5" />
+							<p class="read-more-wrap5">
+								<span class="read-more-target5" >
+								For each model, the following parameters were considered:<br><br>
+								<b>Support Vector Machine:</b>
+									<br>
+									tol - the tolerance for stopping criterion
+									<br>
+									C - the regularization parameter
+								<br>
+								<br>
+								<b>Gaussian Naive Bayes: </b>
+								<br>
+									var_smoothing - largest variance of every feature that is added
+								<br>
+								<br>
+								<b>Logistic Regression: </b>
+								<br>
+									C -  the inverse of regularization strength similar to Support Vector Machines
+									<br>
+									tol -  the tolerance for stopping criteria.
+								<br>
+								<br>
+								<b>K Nearest Neighbors:</b>
+								<br>
+									n_neighbors - the number of neighbors
+									<br>
+									p - the specific distance calculation between Manhattan, Euclidean, and Minkowski distance.
+								<br>
+								<br>
+								<b>Random Forest:</b>
+								<br>
+									n_estimators - the number of decision trees in the forest
+								<br>
+								<br>
+								<b>Decision Tree:</b>
+								<br>
+									class_weight - the weight of each class label 
+
+							<br>
+							<br>
+								After performing grid search cross validation on each model, the following are the optimal sets of parameters for each model: 
+							<br>
+							<br>
+								<b>Support Vector Machine:</b>
+								<br>
+									C: 10, tol: 0.1
+									<br>
+									<br>
+								<b>Gaussian Naive Bayes: </b>
+								<br>
+									var_smoothing: 0.1
+									<br>
+									<br>
+								<b>Logistic Regression: </b>
+								<br>
+									C: 10, tol: 0.1
+									<br>
+									<br>
+								<b>K Nearest Neighbors:</b>
+								<br>
+									n_neighbors: 1, p: 3
+									<br>
+									<br>
+								<b>Random Forest:</b>
+								<br>
+									n_estimators: 200
+									<br>
+									<br>
+								<b>Decision Tree:</b>
+								<br>
+									class_weight: null
+								</span>
+							</p>
+							<label for="post-5" class="button primary read-more-trigger5" style="margin-left: 40%"></label>
+
 							<p> <h3><b>Model Validation</b></h3>
-								Once the models were constructed, the results were validated. It is important to note that accuracy is not the only metric that is important to assess the performance of the models. Since we are working with predicting the disease risk of individuals, Type I and Type II errors are also very important. It is potentially dangerous to classify an individual as low risk when they are actually high risk (Type II, False Negative). Additionally, classifying an individual as high risk when they are actually low risk could cause the individual some unnecessary stress within themselves and their families (Type I, False Positive). Therefore, it is important to control for such errors in our model. To do so, we will prioritize the maximization of Recall (TP/(TP+FN)) since it is an indicator of the dangerous False Negatives in our model but at the same time attempt to maximize Precision (TP/(TP+FP)) since it is an indicator of False Positives.
-							</p>
-							<p>
-								In general:<br>
-								- <b>Accuracy</b> is a great metric only when you have symmetric datasets (meaning false negatives & false positives counts are close) and when 
-								false negatives & false positives have similar costs. If the cost of false positives and false negatives are different, then F1-score is 
-								the best option. F1-score is best if you have an uneven class distribution.<br>
-								- <b>Recall/Sensitivity</b> is the best metric if the idea of false positives is far better than false negatives. In other words, if the occurrence 
-								of false negatives is unaccepted/intolerable, then you'd rather get some extra false positives (false alarms) over saving some false negatives, 
-								like in the diabetes example. In that example, you'd rather get some healthy people labeled diabetic over leaving a diabetic person labeled 
-								healthy.<br>
-								- <b>Precision</b> is the best metric if you want to be more confident of your true positives. For example, with spam emails, you'd rather have some 
-								spam emails in your inbox rather than some regular emails in your spam box. So, the email company wants to be extra sure that email Y is spam 
-								before they put it in the spam box and you never get to see it.<br>
-								- <b>Specificity</b> is the best metric if you want to cover all true negatives, meaning you don't want any false alarms (false positives). For example, 
-								if you're running a drug test in which all people who test positive will immediately go to jail, then you don't want anyone drug-free going to 
-								jail. In this example, false positives are intolerable.
+								Once the models were constructed, each model was assessed on accuracy, precision and recall between each of the three classes (Low Risk, Medium Risk, and High Risk). It is important to note that accuracy is not the only metric useful for assessing the performance of models. In the case of disease risk prediction, priority should be given to avoiding Type I and Type II errors. It is potentially dangerous to classify an individual as low risk when they are actually high risk (Type II, False Negative). Additionally, classifying an individual as high risk when they are actually low risk could cause the individual some unnecessary stress within themselves and their families (Type I, False Positive). Therefore, it is important to control for such errors in our model. To do so, priority was given to the maximization of Recall, especially for the high risk class, since it is an indicator of the dangerous False Negatives in the various models. At the same time, Precision is equally important, as it is an indicator of False Positives.
 							</p>
 						</div>
 					</section>
@@ -159,20 +244,51 @@
 						<div class="content">
 							<h2><b>Results</b></h2>
 							<p>
-								For each model, we got the accuracy and F1 score for the baseline model, calculated the average specificity between each of the three classes (Low Risk, 
-								Medium Risk, and High Risk), and performed grid search cross validation to perform hyperparameter tuning and get the optimal set of parameters. Then, 
-								we plotted Receiver Operating Characteristic (ROC) and Precision-Recall (P-R) curves to provide a visual way of comparing each model’s results. For 
-								context, an ROC curve is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is 
-								varied. The ROC curve is created by plotting the true positive rate against the false positive rate at various threshold settings. A P-R curve is a plot 
-								of the precision (y-axis) and the recall (x-axis) for different thresholds, much like the ROC curve. Essentially, for an ROC curve, as the curve moves higher 
-								up and to the left, the better the model performs for a particular class since the true positive rate is maximized and the false positive rate is minimized 
-								across various thresholds. Similarly, for a P-R curve, as the curve moves higher up and to the right, the better the model performs for a particular class 
-								since both precision and recall are maximized across various thresholds.  Here are the ROC and P-R curves for each model:
+								First, a table for each disease that shows accuracy by class was produced, in order to understand how each model performs in terms of accuracy for low risk, medium risk, and high risk. Additionally, the overall accuracies of each model for each disease can be seen in Table 2 below. From the accuracies alone, it seems the Gaussian Naive Bayes and the Support Vector Machine models are the clear winners. Another thing to notice is that in all of these diseases, Logistic Regression and Random Forest Classifiers also perform decently. However, the data are distributed so that most of the population are low risk individuals, so a model could have high accuracy but perform poorly on higher risk individuals.
+								<center><img src="images/accuracies.png" alt="" width="800"/></center>
 							</p>
-
+							<p>
+								Additionally, the accuracies only reflect one instance of the model, they do not show how the model changes when using different thresholds for classifying each class. To address the lack of information gained by analyzing accuracy alone, P-R curves were produced in order to show how different thresholds can change each model’s performance. For context, a P-R curve is a plot of the precision (y-axis) and the recall (x-axis) for different thresholds. Essentially, for a P-R curve, as the curve moves higher up and to the right, the better the model performs for a particular class since both precision and recall are maximized across various thresholds. In addition to maximizing these curves, recall for the high risk class should be maximized, because high recall means less false negatives. In the high risk class, a false negative would mean that someone who is actually at high risk is being classified as not at high risk, which is the worst mistake a model could make for disease risk prediction. Below are tables for each disease showing accuracies split by class, followed by P-R curves for each model. Each model is split by class, with low risk in green, medium risk in orange, and high risk in red. 
+							</p>
+							<p>
+								<b>Coronary Artery Disease</b><br>
+								<center><img src="images/cad_acc.png" alt="" width="550"/></center><br><br>
+								<center><img src="images/cad_plots.png" alt="" width="730"/></center>
+							</p>
+							<p>
+								Table 3 describes the accuracies broken down by class. In other words, for each individual who is actually low risk, the column labeled “Low Risk” contains the proportion of individuals in the test set that are correctly labeled as low risk by the model in question. The same is true for the “Medium Risk” and “High Risk” columns. By focusing on the accuracy in the high risk class, it is clear that Logistic Regression and the Random Forest Classifier perform poorly in the high risk case. K Nearest Neighbors and Decision Trees also don’t do great on the high risk class, while Support Vector Machine and Gaussian Naive Bayes do the best on the high risk class, and have the most balanced accuracies over all classes in general. However, these accuracies are for a single parameterization of these models, it may be possible to improve each model using the high risk accuracy to get more balanced results (they were optimized on overall accuracy, which favors accuracy for the low risk class, due to the fact that low risk individuals make up ~60% of the dataset).
+							</p>
+							<p>
+								From Figure 5, it is clear that Decision Trees and K Nearest Neighbors do not have great P-R curves, as their area values are relatively low, especially for the high risk class. Note that the math behind a Logistic Regression model is very similar to the math behind how polygenic risk scores are calculated — both methods calculate weights for the classes, then in each individual their risk score is the sum of all the weights of the features that they have. From Figure 5, Logistic Regression has a lower value for area for the high risk class than the other three models. This suggests that the other three machine learning models may be better fit to understand the complexities of genetics and its contribution towards disease. Between the other three models, it seems Support Vector Machines performs the best in terms of precision and recall for the high risk class, but it is closely followed by Gaussian Naive Bayes and the Random Forest Classifier.
+							</p>
+							<p>
+								<b>Alzheimer's Disease</b><br>
+								<center><img src="images/ad_acc.png" alt="" width="550"/></center><br><br>
+								<center><img src="images/ad_plots.png" alt="" width="730"/></center>
+							</p>
+							<p>
+								From Table 4, by focusing on the accuracy in the high risk class, the Random Forest Classifier and Decision Tree Classifier seem to perform the worst. The Logistic Regression and Support Vector Machine models perform equally well on high risk, but the SVM does slightly better than the Logistic Regression on the medium risk class. K nearest neighbors and Gaussian Naive Bayes do the best on the high risk class, although KNN performs very poorly on the medium risk class. Once again, though, these accuracies are for a single parameterization of these models, so P-R curves are a better way to show how the models perform for different thresholds.
+							</p>
+							<p>
+								From the P-R curves in Figure 6, similar to Figure 5 (Coronary Artery Disease P-R curves), it is once again clear that the Decision Trees and K Nearest Neighbors perform poorly in terms of precision and recall for the high risk class. For Alzheimer’s Disease, Logistic Regression actually performs pretty well on the high risk class, but performs much worse on the medium risk class than any other model. The Random Forest Classifier, Support Vector Machine, and Gaussian Naive Bayes models performed most consistently across the three classes, with the Random Forest Classifier and SVM doing best on the high risk. Between those two, the SVM seems to be the best because it has better accuracy and does slightly better on the medium and low risk classes in precision and recall.
+							</p>
+							<p>
+								<b>Diabetes Mellitus</b><br>
+								<center><img src="images/dm_acc.png" alt="" width="550"/></center><br><br>
+								<center><img src="images/dm_plots.png" alt="" width="730"/></center>
+							</p>
+							<p>
+								From Table 5, by focusing on the accuracy in the high risk class, the Random Forest Classifier and Decision Tree Classifier are once again the two worst models. The Logistic Regression is actually the best model in terms of accuracy for the high risk class, outperforming the Gaussian Naive Bayes and Support Vector Machine models by a large margin. The KNN, SVM, and GNB models all have equal accuracy on the high risk class, although KNN has poor accuracy on the medium risk class. In deciding between the Logistic Regression, Support Vector Machine and Gaussian Naive Bayes models, it is crucial to also consider how recall changes as the model thresholds change. 
+							</p>
+							<p>
+								From Figure 7, we can see again that the Decision Tree and K Nearest Neighbors are unfavorable compared to the other models for precision and recall. Interestingly, Logistic Regression is not as good as SVM, GNB, and RFC models for precision and recall in the high risk class, though it outperformed those three in accuracy. From the other three models, it seems that GNB has the best P-R curve for the high risk class, but it is closely followed by the RFC and SVM models. 
+							</p>
+							<p>
+								By looking at these three diseases, a different model performed the best in terms of precision and recall. In terms of accuracy on the high risk class, Gaussian Naive Bayes was the best for both Coronary Artery Disease and Alzheimer’s Disease, although Logistic Regression won out over the Gaussian Naive Bayes model for classifying Diabetes Mellitus. Though the results vary across disease, it is clear that Gaussian Naive Bayes and Support Vector Machine could very likely be better models for disease risk prediction than Logistic Regression. Using Logistic Regression as a proxy for polygenic risk scores (since, as stated before, they use almost the exact same algorithm), it is quite likely that polygenic risk scores are not the best way to predict disease on the individual level.
+							</p>
 						</div>
 					</section>
-						<!-- Gallery -->
+					<!-----
 						<div class="gallery style2 medium lightbox onscroll-fade-in">
 							<article>
 								<a href="images/gallery/lr_pr.png" class="image">
@@ -331,37 +447,19 @@
 								</div>
 							</article>
 						</div>
-					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-						<div class="content">
-							<p>
-								After running each model, we compiled the model results into a dataframe that contains each model’s accuracy, F1 score, and average specificity for both 
-								the baseline model and grid search optimized model. Here is the dataframe:<br>
-								<center><img src="images/model_results.png" alt="" width="800"/></center>
-							</p>
-							<p>
-								From our results, we find that Support Vector Machine performed the best on every metric by having 100% for each metric. We determined that the SVM was 
-								genuinely performing the best by extracting meaningful features rather than overfitting to our data set. However, it may be taking advantage of the way 
-								in which the data was simulated (to be explored further). Naive Bayes and Random Forest also performed really well and could be great alternative models 
-								to use in our project.
-							</p>
-						</div>
-					</section>
+					-->
 
 				<!-- Five -->
 					<section class="wrapper style1 align-left">
 						<div class="inner">
 							<h2><b>Conclusion</b></h2>
-							<p>Because Support Vector Machine performed the best out of the various models, we decided to use SVM as our model for disease prediction, at least when we 
-								worked with coronary heart disease data. We will continue to explore other diseases to get a better understanding of each model’s performance in disease 
-								prediction.</p>
-						</div>
-					</section>
-
-					<section class="wrapper style1 align-left">
-						<div class="inner">
-							<h2>Source Code</h2>
+							<p>In conclusion, to analyze machine learning techniques for disease risk prediction, various machine learning models were tested against Logistic Regression, which is used as a proxy for traditional techniques. By analyzing accuracy and recall on the high risk class, it is clear that various machine learning models are more viable than polygenic risk scoring for disease risk prediction. Moreover, considerations such as environmental factors and lifestyle choices were not accounted for and could be used to further improve a machine learning model, but they could not be incorporated into a polygenic risk score. </p>
 							<p>
-								Source code and detailed Jupyter notebooks can be accessed <a href="https://github.com/esanchez01/PredictingDisease" target="_blank">here</a>.
+								One other important thing to think about is how these results are biased towards the simulation process. Looking back at how the data are simulated may explain why some models do better than others. However, changing the factors giving high risk individuals more of the risk SNPs and low risk individuals less of the risk SNPs did not change the overall performance of the different models significantly—Gaussian Naive Bayes and Support Vector Machines remained as the best models.
+							</p>
+							<p>
+								<b>Future Work</b><br>
+								Though multiple methods of simulating the data were tested—each of which produced similar results—there may be some other factor that the simulation process does not account for. The best way to solve simulation bias would be to get real data. In the future, a real dataset containing fully sequenced individuals with each individual labeled for having a disease or not having a disease could be tested with various models the same way the simulated data are tested, in order to understand more realistically how different models perform on different diseases, and how they vary. 
 							</p>
 						</div>
 					</section>
@@ -371,29 +469,49 @@
 						<div class="inner">
 							<h2>References</h2>
 							<p>
-								1. Cáceres, J. J., & Paccanaro, A. (2019, July 5). Disease gene prediction for molecularly uncharacterized diseases. Retrieved from
+								<b>1.</b> Bhatnagar, Sahir Rai. “Polygenic Risks Scores with Data.table in R.” Sahir's Blog, 11 Aug. 2017, 
+								sahirbhatnagar.com/blog/2017/08/11/polygenic-risks-scores-with-data.table-in-r/.
+								
+							</p>
+							<p>
+								<b>2.</b> Cáceres, J. J., & Paccanaro, A. (2019, July 5). Disease gene prediction for molecularly uncharacterized diseases. Retrieved from
 								 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6636748/
 							</p>
 							<p>
-								2. Genome-Wide Association Studies (GWAS). (n.d.). Retrieved from https://www.genome.gov/genetics-glossary/Genome-Wide-Association-Studies
+								<b>3.</b> Genome-Wide Association Studies (GWAS). (n.d.). Retrieved from https://www.genome.gov/genetics-glossary/Genome-Wide-Association-Studies
 							</p>
 							<p>
-								3. Schrodi, S. J., Mukherjee, S., Shan, Y., Tromp, G., Sninsky, J. J., Callear, A. P., … Weeks, D. E. (2014, June 2). Genetic-based prediction 
+								<b>4.</b> Keane, T., & Wtsi. (n.d.). Retrieved from https://www.uk10k.org/data_access.html
+							</p>
+							<p>
+								<b>5.</b> Koehrsen, Will. “Beyond Accuracy: Precision and Recall.” Medium, Towards Data Science, 10 Mar. 2018, towardsdatascience.com/beyond-accuracy-precision-and-recall-3da06bea9f6c.
+							</p>
+							<p>
+								<b>6.</b> “Polygenic Risk Scores.” Genome.gov, www.genome.gov/Health/Genomics-and-Medicine/Polygenic-risk-scores.
+							</p>
+							<p>
+								<b>7.</b> Schrodi, S. J., Mukherjee, S., Shan, Y., Tromp, G., Sninsky, J. J., Callear, A. P., … Weeks, D. E. (2014, June 2). Genetic-based prediction 
 								of disease traits: prediction is very difficult, especially about the future. Retrieved from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4040440/
 							</p>
 							<p>
-								4. SNP. (n.d.). Retrieved May 17, 2020, from https://www.nature.com/scitable/definition/snp-295/
+								<b>8.</b> Sci-kit learn: Machine learning in Python. (2020). Retrieved June 02, 2020, from https://scikit-learn.org/stable/
 							</p>
 							<p>
-								5. Uddin, S. (2019, December 21). Comparing different supervised machine learning algorithms for disease prediction. Retrieved May 17, 2020, 
+								<b>9.</b> SNP. (n.d.). Retrieved May 17, 2020, from https://www.nature.com/scitable/definition/snp-295/
+							</p>
+							<p>
+								<b>10.</b> Tian, Dongmei, Wang, Pei, Tang, Teng, … Zhang. (2019, September 30). GWAS Atlas: a curated resource of genome-wide variant-trait associations in plants and animals. Retrieved from https://academic.oup.com/nar/article/48/D1/D927/5576118
+							</p>
+							<p>
+								<b>11.</b> Uddin, S. (2019, December 21). Comparing different supervised machine learning algorithms for disease prediction. Retrieved May 17, 2020, 
 								from https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-019-1004-8
 							</p>
 							<p>
-								6. Wai, D. S., William, Melissa, Richard, O’Sullivan, & Justin. (2019, March 11). Machine Learning SNP Based Prediction for Precision Medicine.
+								<b>12.</b> Wai, D. S., William, Melissa, Richard, O’Sullivan, & Justin. (2019, March 11). Machine Learning SNP Based Prediction for Precision Medicine.
 								Retrieved May 17, 2020, from https://www.frontiersin.org/articles/10.3389/fgene.2019.00267/full
 							</p>
 							<p>
-								7. Wray, N. R., Yang, J., Hayes, B. J., Price, A. L., Goddard, M. E., & Visscher, P. M. (2013, July). Pitfalls of predicting complex traits from
+								<b>13.</b> Wray, N. R., Yang, J., Hayes, B. J., Price, A. L., Goddard, M. E., & Visscher, P. M. (2013, July). Pitfalls of predicting complex traits from
 								SNPs. Retrieved from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4096801/
 							</p>
 						</div>
